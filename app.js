@@ -13,6 +13,13 @@ const { default: helmet } = require('helmet')
 const compression = require('compression')
 const morgan = require('morgan')
 
+const corsOptions={
+    "origin": "*",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 200
+}
+
 //allow to use json
 app.use(express.json())
 
@@ -21,7 +28,7 @@ app.use('/api/v1/lastest', lastestRouter)
 app.use('/api/v1/historical', historicalRouter)
 
 //deploy 
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(helmet())
 app.use(compression())
 
