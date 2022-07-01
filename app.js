@@ -5,6 +5,8 @@ const app = express()
 //import routers
 const { lastestRouter } = require('./routes/lastest.routes')
 const { historicalRouter } = require('./routes/historical.routes')
+
+
 const { default: helmet } = require('helmet')
 const compression = require('compression')
 const morgan = require('morgan')

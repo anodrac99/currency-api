@@ -10,7 +10,13 @@ const db = new Sequelize({
     password: process.env.DB_PASSWORD,
     port: 5432,
     database: process.env.DB,
-    logging: false
+    logging: false,
+    dialectOptions: {
+        ssl: {
+            required: true,
+            rejectUnauthorized: false
+        }
+    }
 })
 
 module.exports = { db, DataTypes}
