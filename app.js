@@ -20,6 +20,11 @@ const corsOptions={
     "optionsSuccessStatus": 200
 }
 
+//deploy 
+app.use(cors(corsOptions))
+app.use(helmet())
+app.use(compression())
+
 //allow to use json
 app.use(express.json())
 
@@ -27,10 +32,6 @@ app.use(express.json())
 app.use('/api/v1/lastest', lastestRouter)
 app.use('/api/v1/historical', historicalRouter)
 
-//deploy 
-app.use(cors(corsOptions))
-app.use(helmet())
-app.use(compression())
 
 if(process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 else app.use(morgan('combined'))
