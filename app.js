@@ -2,6 +2,8 @@ const express = require('express')
 
 const app = express()
 
+const cors = require('cors')
+
 //import routers
 const { lastestRouter } = require('./routes/lastest.routes')
 const { historicalRouter } = require('./routes/historical.routes')
@@ -18,6 +20,8 @@ app.use(express.json())
 app.use('/api/v1/lastest', lastestRouter)
 app.use('/api/v1/historical', historicalRouter)
 
+//deploy 
+app.use(cors())
 app.use(helmet())
 app.use(compression())
 
