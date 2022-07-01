@@ -3,7 +3,7 @@ const { Lastest } = require('../models/lastest.model')
 const getLastest = async (req, res, next) => {
     try {
         const info = await Lastest.findAll({
-            include: ['name', 'value']
+            attributes: ['name', 'value']
         })
 
         res.status(200).json({

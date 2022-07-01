@@ -3,11 +3,11 @@ const { Historical } = require('../models/historical.model')
 const getHistorical = async (req, res, next) => {
     try {
         const info = await Historical.findAll({
-            include: ['name', 'value']
+            attributes: ['name', 'value']
         })
 
         res.status(200).json({
-            state: 'success',
+            status: 'success',
             info
         })
 
